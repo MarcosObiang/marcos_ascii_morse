@@ -7,7 +7,6 @@ public class Main {
         Scanner scaner = new Scanner(System.in);
         HashMap<String, String> morseAscii = new HashMap<String, String>();
 
-        // Morse code mapping to ascii
         morseAscii.put(".-", "A");
         morseAscii.put("-...", "B");
         morseAscii.put("-.-.", "C");
@@ -38,26 +37,20 @@ public class Main {
         System.out.println("Introduce tu frase en morse: ");
         String morseSentence = scaner.nextLine();
 
-        // Translate Morse code to ASCII (text)
         String asciiText = morseToAscii(morseSentence, morseAscii);
 
-        // Output the result
         System.out.println("Translated ASCII (text): " + asciiText);
         scaner.close();
     }
 
-    // Method to convert a Morse code sentence to ASCII text
     public static String morseToAscii(String morseSentence, HashMap<String, String> morseAscii) {
         StringBuilder asciiText = new StringBuilder();
 
-        // Split the sentence by " " (used for word separation in Morse code)
         String[] words = morseSentence.split(" ");
 
         for (String word : words) {
-            // Split each word by single space to get individual Morse symbols
             String[] morseSymbols = word.split(" ");
 
-            // Translate each Morse symbol into its corresponding ASCII letter
             for (String morseSymbol : morseSymbols) {
                 String letter = morseAscii.get(morseSymbol);
                 if (letter != null) {
@@ -65,11 +58,9 @@ public class Main {
                 }
             }
 
-            // Add a space after each word (except the last word)
             asciiText.append(" ");
         }
 
-        // Remove the trailing space
         return asciiText.toString().trim();
     }
 
