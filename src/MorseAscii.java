@@ -1,10 +1,9 @@
+package src;
+
 import java.util.HashMap;
-import java.util.Scanner;
 
-public class Main {
-
-    public static void main(String[] args) {
-        Scanner scaner = new Scanner(System.in);
+public class MorseAscii {
+    public static String traducir(String morseSentence) {
         HashMap<String, String> morseAscii = new HashMap<String, String>();
 
         morseAscii.put(".-", "A");
@@ -34,16 +33,7 @@ public class Main {
         morseAscii.put("-.--", "Y");
         morseAscii.put("--..", "Z");
 
-        System.out.println("Introduce tu frase en morse: ");
-        String morseSentence = scaner.nextLine();
 
-        String asciiText = morseToAscii(morseSentence, morseAscii);
-
-        System.out.println("Translated ASCII (text): " + asciiText);
-        scaner.close();
-    }
-
-    public static String morseToAscii(String morseSentence, HashMap<String, String> morseAscii) {
         StringBuilder asciiText = new StringBuilder();
 
         String[] words = morseSentence.split(" ");
@@ -63,5 +53,4 @@ public class Main {
 
         return asciiText.toString().trim();
     }
-
 }
