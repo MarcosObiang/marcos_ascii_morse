@@ -1,10 +1,11 @@
+package src;
+
 import java.util.HashMap;
-import java.util.Scanner;
 
-public class MorseASCII {
-    HashMap<String, String> morseAscii = new HashMap<String, String>();
+public class MorseAscii {
+    public static String traducir(String morseSentence) {
+        HashMap<String, String> morseAscii = new HashMap<String, String>();
 
-    public MorseASCII() {
         morseAscii.put(".-", "A");
         morseAscii.put("-...", "B");
         morseAscii.put("-.-.", "C");
@@ -32,13 +33,7 @@ public class MorseASCII {
         morseAscii.put("-.--", "Y");
         morseAscii.put("--..", "Z");
 
-    }
 
-
-
-
-
-    public String morseToAscii(String morseSentence) {
         StringBuilder asciiText = new StringBuilder();
 
         String[] words = morseSentence.split(" ");
@@ -58,5 +53,4 @@ public class MorseASCII {
 
         return asciiText.toString().trim();
     }
-
 }
